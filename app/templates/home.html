@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <h1>China Weather Data API</h1>
+    <h2>输入省份和城市</h2>
+    <form action="/search" method="get">
+      <form action="/search" method="get">
+        <div>
+          <label for="province">Province:</label>
+          <input
+            type="text"
+            id="province"
+            name="province"
+            placeholder="示例：广东"
+          />
+        </div>
+        <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" placeholder="示例：广州" />
+        </div>
+        <div>
+          <button id="searchButton">Search</button>
+        </div>
+      </form>
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
