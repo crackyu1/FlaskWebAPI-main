@@ -5,4 +5,4 @@ included Flask,pytest,global exception handler
 after cloning you should
 1.create and activate a venv
 2.install requirements with pip install -r requirements.txt
-3.run the project with python main.py
+3.run the project by python app.py or ctrl+F5 on vscode

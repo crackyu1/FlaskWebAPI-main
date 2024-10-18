@@ -9,11 +9,18 @@ class WeatherRequestError(Exception):
         self.city = city
 def get(province:str,city:str):
     url = f"https://cn.apihz.cn/api/tianqi/tqyb.php?id=88888888&key=88888888&sheng={province}&place={city}"
-    try:
-        response=requests.get(url)
-        response.raise_for_status()
-        #获取json数据
-        data=response.json() 
+    response=requests.get(url)
+    #获取response的text
+    if hasattr(response.request, 'text'):
+        mytext=response.request.text
+        #mytext中包含"code":400,直接抛出mytext\
+        if '"code":400' in mytext:
+            raise Exception(mytext)
+       
+        
+    #获取json数据
+    data=response.json()
+    try: 
         place=data["place"]
         temperature=data["temperature"]
         weather=data["weather1"]
